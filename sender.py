@@ -17,16 +17,17 @@ class HeatSensor:
         return self.temperature
 
 
-def send_params(sensor1, sensor2, receiver):
+def send_params(sensor1, sensor2, receiver, no_of_samples):
     """
     Printing the values on console
     """
-    for i in range(50):  # creating 50 readings:
+    for i in range(no_of_samples):  # creating 50 readings:
         attribute1 = random.randint(60, 80)
         attribute2 = random.randint(0, 60)
         charge_sensor = sensor1(attribute1)
         heat_sensor = sensor2(attribute2)
-        receiver(f"{charge_sensor.get_value()},{heat_sensor.get_value()}")
+        receiver(
+            f"Charge : {charge_sensor.get_value()}, Temperature : {heat_sensor.get_value()}")
 
 
 def print_on_console(params):
@@ -34,5 +35,4 @@ def print_on_console(params):
 
 
 if __name__ == "__main__":
-
-    send_params(ChargeSensor, HeatSensor, print_on_console)
+    send_params(ChargeSensor, HeatSensor, print_on_console, 50)
