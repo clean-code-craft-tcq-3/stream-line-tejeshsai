@@ -31,7 +31,7 @@ def send_params(sensor1, sensor2, receiver, no_of_samples):
         charge_stream.append(charge_sensor.get_value())
         heat_stream.append(heat_sensor.get_value())
 
-    print_on_console(charge_stream, heat_stream)
+    receiver(charge_stream, heat_stream)
 
 
 def print_on_console(charge_stream, heat_stream):
