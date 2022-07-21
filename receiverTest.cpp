@@ -75,12 +75,12 @@ void TestBatteryStatistics()
 
 void TestDisplayBatteryStats()
 {
-  BatteryStatistics batteryStats;
-  std::vector<float> temperatureReadings = {10,2,30,20,5};
-  std::vector<float> stateofChargeReadings = {60,68,70,74,80};
-  batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
-  DisplayTemperatureStats(batteryStats.tempereatureStats);
-  DisplayStateOfChargeStats((batteryStats.stateOfChargeStats);
+  BatteryStatistics batteryStatistics;
+  std::vector<float> temperatureReadings = {5,7,25,10,1};
+  std::vector<float> stateofChargeReadings = {62,64,70,74,80};
+  batteryStatistics = computeStatistics(temperatureReadings,stateofChargeReadings);
+  DisplayTemperatureStats(batteryStatistics.tempereatureStats);
+  DisplayStateOfChargeStats((batteryStatistics.stateOfChargeStats);
 }
 
 int main()
