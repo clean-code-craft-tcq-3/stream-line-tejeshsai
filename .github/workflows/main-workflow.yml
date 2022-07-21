@@ -46,3 +46,4 @@ jobs:
       - name: Integrate Sender and Reciever
         run: |
           python sender.py
+          ./testchecker
