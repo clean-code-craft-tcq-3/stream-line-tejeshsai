@@ -43,4 +43,6 @@ jobs:
           name: coverage
           path: ./htmlcov
           retention-days: 21
-          
+      - name: Integrate Sender and Reciever
+        run: |
+          python sender.py
