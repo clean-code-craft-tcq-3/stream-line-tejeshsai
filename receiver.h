@@ -5,22 +5,22 @@
 
 struct TemperatureStatistics
 {
-   minimumReadings;
-   maximumReadings;
-   simpleMovingAvg;
-}
+  float minimumReadings;
+  float maximumReadings;
+  float simpleMovingAvg;
+};
 struct StateOfChargeStatistics
 {
-   minimumReadings;
-   maximumReadings;
-   simpleMovingAvg;
-}
+  float minimumReadings;
+  float maximumReadings;
+  float simpleMovingAvg;
+};
 
 struct BatteryStatistics
 {     
   TemperatureStatistics tempereatureStats;
   StateOfChargeStatistics stateOfChargeStats;
-}
+};
 
 std::vector<float> getTemperatureReadings(std::vector<float> temperatureReadings);
 std::vector<float> getStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
