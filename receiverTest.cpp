@@ -15,7 +15,7 @@ void TestCheckMaximumTemperature()
   float temperatureMax;
   std::vector<float> temperatureReadings = {10,2,30,20,5};
   temperatureMax = getMaximumTemperatureReadings(temperatureReadings);
-  assert(TemperatureMax == 30); 
+  assert(temperatureMax == 30); 
 }
 
 //Test Minimum state of charge
@@ -75,6 +75,8 @@ void TestBatteryStatistics()
 void TestDisplayBatteryStatistics()
 {
   BatteryStatistics batteryStats;
+  std::vector<float> temperatureReadings = {10,2,30,20,5};
+  std::vector<float> stateofChargeReadings = {60,68,70,74,80};
   batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
   DisplayBatteryStats(batteryStats);
 }
