@@ -87,7 +87,7 @@ int main()
 {
   TestCheckMinimumTemperature();
   TestCheckMaximumTemperature();
- // TestTemperatureSimpleMovingAverage();
+  TestTemperatureSimpleMovingAverage();
   
   TestCheckMinimumStateofCharge();
   TestCheckMaximumStateofCharge();
