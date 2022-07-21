@@ -80,7 +80,7 @@ void TestDisplayBatteryStats()
   std::vector<float> stateofChargeReadings = {62,64,70,74,80};
   batteryStatistics = computeStatistics(temperatureReadings,stateofChargeReadings);
   DisplayTemperatureStats(batteryStatistics.tempereatureStats);
-  DisplayStateOfChargeStats((batteryStatistics.stateOfChargeStats);
+  DisplayStateOfChargeStats(batteryStatistics.stateOfChargeStats);
 }
 
 int main()
