@@ -5,6 +5,11 @@ void mockReceiver(std::vector<float> temperature, std::vector<float> stateOfChar
 {
 
 }
+
+void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
+{
+     std::cout << msg << Delimiter << value << std::endl;
+}
 std::vector<float> getTemperatureReadings(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>))
 {
      receiverData(temperatureReadings, stateOfCharge);
