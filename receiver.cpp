@@ -5,16 +5,6 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
 }
-std::vector<float> getTemperatureReadings(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>))
-{
-     receiverData(temperatureReadings, stateOfCharge);
-     return temperatureReadings;    
-}
-std::vector<float> getStateOfChargeReadings(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>))
-{
-     receiverData(temperatureReadings, stateOfCharge);
-     return stateOfCharge;    
-}
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings)
 {
       float min = *min_element(temperatureReadings.begin(), temperatureReadings.end());
