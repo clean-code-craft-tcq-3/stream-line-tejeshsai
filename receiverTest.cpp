@@ -1,5 +1,4 @@
 #include "receiver.h"
-using namespace std;
 
 //Test Minimum Temperature
 void TestCheckMinimumTemperature()
