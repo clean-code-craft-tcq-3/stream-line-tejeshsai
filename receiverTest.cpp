@@ -64,6 +64,13 @@ void TestBatteryStatistics()
   assert(batteryStats.stateOfChargeStats.simpleMovingAvg == 50);
 }
 
+void TestDisplayBatteryStatistics()
+{
+  BatteryStatistics batteryStats;
+  batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
+  DisplayBatteryStats(batteryStats);
+}
+
 int main()
 {
   TestCheckMinimumTemperature();
@@ -75,6 +82,7 @@ int main()
   TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
+  TestDisplayBatteryStatistics();
   
   return 0;
 }
