@@ -66,7 +66,7 @@ void DisplayBatteryStats(BatteryStatistics batteryStats)
      DisplayReadingsOnConsole("Temperature",':',batteryStats.tempereatureStats.maximumReadings);
      DisplayReadingsOnConsole("Temperature",':',batteryStats.tempereatureStats.simpleMovingAvg);
 
-    // DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
-     //DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
-    // DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
+     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
+     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
+     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
 }
