@@ -23,8 +23,8 @@ struct BatteryStatistics
 };
 
 void mockReceiver(std::vector<float> temperature, std::vector<float> stateOfCharge);
-std::vector<float> getTemperatureReadings(std::vector<float> temperatureReadings);
-std::vector<float> getStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
+std::vector<float> getTemperatureReadings();
+std::vector<float> getStateOfChargeReadings();
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMinimumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
