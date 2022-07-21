@@ -61,13 +61,17 @@ BatteryStatistics computeStatistics(std::vector<float> temperatureReadings , std
   return batteryStats;
 }
 
-void DisplayBatteryStats(BatteryStatistics batteryStats)
+void DisplayTemperatureStats(TemperatureStatistics tempStats)
 {
-     DisplayReadingsOnConsole("Temperature",':',batteryStats.tempereatureStats.minimumReadings);
-     DisplayReadingsOnConsole("Temperature",':',batteryStats.tempereatureStats.maximumReadings);
-     DisplayReadingsOnConsole("Temperature",':',batteryStats.tempereatureStats.simpleMovingAvg);
+     DisplayReadingsOnConsole("Temperature Minimum",':',tempStats.minimumReadings);
+     DisplayReadingsOnConsole("Temperature Maximum",':',tempStats.maximumReadings);
+     DisplayReadingsOnConsole("Temperature Average",':',tempStats.simpleMovingAvg);
+}
 
-     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
-     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
-     DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
+
+void DisplayStateOfChargeStats(StateOfChargeStatistics socStats)
+{
+     DisplayReadingsOnConsole("SOC Minimum",':',socStats.minimumReadings);
+     DisplayReadingsOnConsole("SOC Maximum",':',socStats.maximumReadings);
+     DisplayReadingsOnConsole("SOC Average",':',socStats.simpleMovingAvg);
 }
