@@ -1,17 +1,6 @@
 #include "receiver.h"
 using namespace std;
 
-void getSingleStreamOfValues(int dataStream[])
-{
-    int idx;
-    scanf("%*s", &dataStream); // Skip parameter string at beginning of stream
-    for (idx = 0; idx < 50 ; idx++)
-    {
-        scanf("%i", &dataStream[idx]);
-    }
-     std::cout << "dataStream : " << dataStream[5] << std::endl;
-}
-
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
@@ -84,15 +73,4 @@ void DisplayStateOfChargeStats(StateOfChargeStatistics socStats)
      DisplayReadingsOnConsole("SOC Minimum",':',socStats.minimumReadings);
      DisplayReadingsOnConsole("SOC Maximum",':',socStats.maximumReadings);
      DisplayReadingsOnConsole("SOC Average",':',socStats.simpleMovingAvg);
-     
-     int temperatureDataStream[50];
-     getSingleStreamOfValues(&temperatureDataStream[0]);
-
-
-    printf("TEMPERATURE");
-    for (idx = 0; idx < 50; idx++)
-    {
-        printf(" %i", temperatureDataStream[idx]);
-    }
-    printf("\n");
 }
