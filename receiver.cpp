@@ -30,10 +30,12 @@ float getSimpleMovingAverage(std::vector<float> readings)
    float sum = 0, simpleMovingAvg = 0;
    int totalCount = 0;
    totalCount = readings.size();
+   DisplayReadingsOnConsole("totalCount",':',totalCount);
    for(int i = 0; i < totalCount; i++)
    {
        sum +=readings[i];
     }
+    DisplayReadingsOnConsole("sum",':',sum);
     simpleMovingAvg=(sum/totalCount);
     DisplayReadingsOnConsole(" getSimpleMovingAverage ",':',simpleMovingAvg);
     return simpleMovingAvg;
