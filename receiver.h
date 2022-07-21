@@ -29,4 +29,4 @@ float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMinimumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
 float getMaximumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
 float getSimpleMovingAverage(std::vector<float> readings);
-BatteryStatistics computeStatistics(std::vector<float> readings1 , std::vector<float> readings2);
+BatteryStatistics computeStatistics(std::vector<float> temperatureReadings , std::vector<float> stateOfChargeReadings);
