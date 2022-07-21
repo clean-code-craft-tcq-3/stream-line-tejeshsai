@@ -72,14 +72,6 @@ void TestBatteryStatistics()
   assert(batteryStats.stateOfChargeStats.simpleMovingAvg == 70.4);
 }
 
-void TestDisplayBatteryStatistics()
-{
-  BatteryStatistics batteryStats;
-  std::vector<float> temperatureReadings = {10,2,30,20,5};
-  std::vector<float> stateofChargeReadings = {60,68,70,74,80};
-  batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
-  DisplayBatteryStats(batteryStats);
-}
 
 int main()
 {
@@ -92,7 +84,6 @@ int main()
   TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
-  TestDisplayBatteryStatistics();
   
   return 0;
 }
