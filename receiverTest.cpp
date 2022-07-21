@@ -48,7 +48,7 @@ void TestStaetOfChargeSimpleMovingAverage()
 //Test SimpleMovingAvergae of Temperature
 void TestTemperatureSimpleMovingAverage()
 {
-  float TemperatureSMA; // SMA - Simple Moving Avergae
+  float TemperatureSMA = 0; // SMA - Simple Moving Avergae
   std::vector<float> temperatureReadings = {10,2,30,20,5};
   TemperatureSMA = getSimpleMovingAverage(temperatureReadings);
   DisplayReadingsOnConsole(" TemperatureSMA ",':',TemperatureSMA);
