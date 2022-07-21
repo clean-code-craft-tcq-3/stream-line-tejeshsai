@@ -27,8 +27,8 @@ float getMaximumStateOfChargeReadings(std::vector<float> stateOfChargeReadings)
 }
 float getSimpleMovingAverage(std::vector<float> readings)
 {
-   float sum, simpleMovingAvg;
-   int totalCount;
+   float sum = 0, simpleMovingAvg = 0;
+   int totalCount = 0;
    totalCount = readings.size();
    for(int i = 0; i < totalCount; i++)
    {
