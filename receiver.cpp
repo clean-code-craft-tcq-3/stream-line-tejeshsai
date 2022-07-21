@@ -1,7 +1,7 @@
 #include "receiver.h"
 using namespace std;
 
-void mockReceiver(std::vector<float> temperature, std::vector<float> stateOfCharge)
+ReceiverReadings mockReceiver(std::vector<float> temperature, std::vector<float> stateOfCharge)
 {
 
 }
@@ -84,4 +84,11 @@ void DisplayBatteryStats(BatteryStatistics batteryStats)
      DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
      DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
      DisplayReadingsOnConsole("StateOfCharge",':',batteryStats.stateOfChargeStats.minimumReadings);
+}
+
+ReceiverReadings getBatteryReadingParameters(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>))
+{
+     ReceiverReadings readingParameters;
+     readingParameters = receiverData(temperatureReadings, stateOfCharge);   
+     return readingParameters;
 }
