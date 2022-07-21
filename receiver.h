@@ -23,7 +23,13 @@ struct BatteryStatistics
   StateOfChargeStatistics stateOfChargeStats;
 };
 
-void mockReceiver(std::vector<float> temperature, std::vector<float> stateOfCharge);
+struct ReceiverReadings
+{
+  std::vector<float> temperatureReceiverReadings;
+  std::vector<float> stateOfChargeReceiverReadings;
+};
+
+ReceiverReadings mockReceiver(std::vector<float> temperature, std::vector<float> stateOfCharge);
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
 std::vector<float> getTemperatureReadings(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>));
 std::vector<float> getStateOfChargeReadings(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>));
@@ -34,6 +40,6 @@ float getMaximumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
 float getSimpleMovingAverage(std::vector<float> readings);
 BatteryStatistics computeStatistics(std::vector<float> temperatureReadings , std::vector<float> stateOfChargeReadings);
 void DisplayBatteryStats(BatteryStatistics batteryStats);
-void processReceiver();
+ReceiverReadings getBatteryReadingParameters(std::vector<float> temperatureReadings, std::vector<float> stateOfCharge, std::vector<float> (*receiverData)(std::vector<float>, std::vector<float>));
 
  
