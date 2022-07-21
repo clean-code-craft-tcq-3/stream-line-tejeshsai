@@ -82,7 +82,7 @@ int main()
   
   TestCheckMinimumStateofCharge();
   TestCheckMaximumStateofCharge();
-  TestStaetOfChargeSimpleMovingAverage();
+ // TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
   
