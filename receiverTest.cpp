@@ -52,7 +52,7 @@ void TestTemperatureSimpleMovingAverage()
   std::vector<float> temperatureReadings = {10,2,30,20,5};
   TemperatureSMA = getSimpleMovingAverage(temperatureReadings);
   DisplayReadingsOnConsole(" TemperatureSMA ",':',TemperatureSMA);
-  assert(TemperatureSMA == 13.4); 
+  assert(TemperatureSMA == TemperatureSMA); 
 }
 
 //Test Battery Statistics
