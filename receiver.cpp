@@ -27,10 +27,6 @@ std::vector<float> readCommaSeperatedValues(std::string line)
         {
            v.push_back(substr);
         }
-        else
-        {
-           // do nothing
-        }
     }
      //Dispaly Read Values.
     for (size_t i = 0; i < readValues.size(); i++)
