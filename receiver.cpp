@@ -7,14 +7,14 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 }
 std::vector<std::string>  getLinesfromConsole()
 {
-     std::vector<std::string> lines;
+     std::vector<std::string> vector_lines;
      string line;
      do{
          getline(cin,line,'\n');
-         lines.push_back(line);
+         vector_lines.push_back(line);
        }while(line != "");
      
-    return lines;
+    return vector_lines;
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
 {
