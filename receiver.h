@@ -3,7 +3,7 @@
 #include<string>
 #include <algorithm>
 #include <assert.h>
-
+#include <sstream>
 struct TemperatureStatistics
 {
   float minimumReadings;
@@ -32,7 +32,7 @@ struct BMSParameters
 
 
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
-std::vector<string>  getLinesfromConsole();
+std::vector<std::string>  getLinesfromConsole();
 std::vector<float> readCommaSeperatedValues(std::string line);
 BMSParameters readBMSParametersFromConsole();
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
