@@ -8,7 +8,7 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 std::vector<std::string>  getLinesfromConsole()
 {
      std::vector<std::string> vector_lines;
-     string line;
+     std::string line = NULL;
      do{
          getline(cin,line,'\n');
          vector_lines.push_back(line);
