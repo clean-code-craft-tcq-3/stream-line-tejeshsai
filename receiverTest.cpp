@@ -76,12 +76,11 @@ void TestBatteryStatistics()
   assert(batteryStats.stateOfChargeStats.simpleMovingAvg == expectedSOCSMA);
 }
 
-void TestDisplayBatteryStats()
+//Test to Check Sender Data Received by receiver 
+void TestReceiver()
 {
   BatteryStatistics batteryStatistics;
-  std::vector<float> temperatureReadings = {5,7,25,10,1};
-  std::vector<float> stateofChargeReadings = {62,64,70,74,80};
-  batteryStatistics = computeStatistics(temperatureReadings,stateofChargeReadings);
+  batteryStatistics = processReceiverData();
   DisplayTemperatureStats(batteryStatistics.tempereatureStats);
   DisplayStateOfChargeStats(batteryStatistics.stateOfChargeStats);
 }
@@ -97,7 +96,7 @@ int main()
   TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
-  TestDisplayBatteryStats();
+  TestReceiver();
   
   return 0;
 }
