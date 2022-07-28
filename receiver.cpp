@@ -28,10 +28,6 @@ std::vector<float> readCommaSeperatedValues(std::string line)
            v.push_back(substr);
         }
     }
-     //Dispaly Read Values.
-    for (size_t i = 0; i < readValues.size(); i++)
-        std::cout << readValues[i] << endl;
-     
     return readValues;
 }
 BMSParameters readBMSParametersFromConsole()
