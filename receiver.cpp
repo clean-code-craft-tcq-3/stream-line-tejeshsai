@@ -5,19 +5,20 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
 }
-std::vector<string>  getLinesfromConsole()
+std::vector<std::string>  getLinesfromConsole()
 {
-     std::vector<string> lines;
+     std::vector<std::string> lines;
      string line;
      do{
          getline(cin,line,'\n');
          lines.push_back(line);
        }while(line != "");
+     
     return lines;
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
 {
-    vector<string> readValues;
+    std::vector<float> readValues;
     stringstream ss(line);
     while (ss.good())
     {
@@ -25,14 +26,14 @@ std::vector<float> readCommaSeperatedValues(std::string line)
         getline(ss, substr, ',');
         if (!substr.empty())
         {
-           v.push_back(substr);
+           readValues.push_back(std::stof(substr)); // Convert String to Float.
         }
     }
     return readValues;
 }
 BMSParameters readBMSParametersFromConsole()
 {
-   vector<string> lines;
+   vector<std::string> lines;
    BMSParameters bmsParameter;  
    lines = getLinesfromConsole();
    std::cout << "---Received data from Sender---" << std::endl;
