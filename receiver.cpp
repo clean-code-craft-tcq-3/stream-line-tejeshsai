@@ -7,8 +7,9 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 }
 std::vector<std::string>  getLinesfromConsole()
 {
+     cout <<"getLinesfromConsole --" << endl;
      std::vector<std::string> vector_lines;
-     std::string line = NULL;
+     std::string line = "";
      do{
          getline(cin,line,'\n');
          vector_lines.push_back(line);
@@ -18,6 +19,7 @@ std::vector<std::string>  getLinesfromConsole()
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
 {
+    cout <<"readCommaSeperatedValues --" << endl;
     std::vector<float> readValues;
     stringstream ss(line);
     while (ss.good())
@@ -33,6 +35,7 @@ std::vector<float> readCommaSeperatedValues(std::string line)
 }
 BMSParameters readBMSParametersFromConsole()
 {
+   cout <<"readBMSParametersFromConsole --" << endl;
    vector<std::string> lines;
    BMSParameters bmsParameter;  
    lines = getLinesfromConsole();
