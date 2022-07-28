@@ -15,7 +15,7 @@ std::vector<std::string>  getLinesfromConsole()
          vector_lines.push_back(line);
        }while(line != "");
      
-     cout << "vector_lines[0]" << vector_lines[0] <<endl;
+     cout << "vector_lines[0] : " << vector_lines[0] <<endl;
     return vector_lines;
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
