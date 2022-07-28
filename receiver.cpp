@@ -5,6 +5,54 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
 }
+std::vector<string>  getLinesfromConsole()
+{
+     std::vector<string> lines;
+     string line;
+     do{
+         getline(cin,line,'\n');
+         lines.push_back(line);
+       }while(line != "");
+    return lines;
+}
+std::vector<float> readCommaSeperatedValues(std::string line)
+{
+    vector<string> readValues;
+    stringstream ss(line);
+    while (ss.good())
+    {
+        string substr;
+        getline(ss, substr, ',');
+        if (!substr.empty())
+        {
+           v.push_back(substr);
+        }
+        else
+        {
+           // do nothing
+        }
+    }
+     //Dispaly Read Values.
+    for (size_t i = 0; i < readValues.size(); i++)
+        std::cout << readValues[i] << endl;
+     
+    return readValues;
+}
+BMSParameters readBMSParametersFromConsole()
+{
+   vector<string> lines;
+   BMSParameters bmsParameter;  
+   lines = getLinesfromConsole();
+   std::cout << "---Received data from Sender---" << std::endl;
+   //Read Temperature
+    std::cout << lines[0] << std::endl; // Read Temperature Title
+    bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[1]); // Read Temperature Values
+   //Read StateofChatrge
+    std::cout << lines[2] << std::endl; // Read State Of Charge Title
+    bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[3]); // Read State of Charge Values
+   
+     return bmsParameter;
+}
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings)
 {
       float min = *min_element(temperatureReadings.begin(), temperatureReadings.end());
@@ -73,4 +121,14 @@ void DisplayStateOfChargeStats(StateOfChargeStatistics socStats)
      DisplayReadingsOnConsole("SOC Minimum",':',socStats.minimumReadings);
      DisplayReadingsOnConsole("SOC Maximum",':',socStats.maximumReadings);
      DisplayReadingsOnConsole("SOC Average",':',socStats.simpleMovingAvg);
+}
+
+BatteryStatistics processReceiverData()
+{
+     BMSParameters bmsParameters;
+     BatteryStatistics batteryStatistics;
+ 
+     bmsParameters = readBMSParametersFromConsole();
+     batteryStatistics = computeStatistics(bmsParameters.temperatureReadings,bmsParameters.stateOfChargeReadings); 
+     return batteryStatistics;
 }
