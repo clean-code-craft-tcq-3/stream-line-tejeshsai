@@ -24,7 +24,7 @@ struct BatteryStatistics
 };
 
 /*Battery Management System Parameters*/
-struct BMSParameter
+struct BMSParameters
 {
     std::vector<float> temperatureReadings;
     std::vector<float> stateOfChargeReadings;
@@ -32,8 +32,9 @@ struct BMSParameter
 
 
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
+std::vector<string>  getLinesfromConsole();
 std::vector<float> readCommaSeperatedValues(std::string line);
-BMSParameter readBMSParametersFromConsole();
+BMSParameters readBMSParametersFromConsole();
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMinimumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
@@ -42,7 +43,7 @@ float getSimpleMovingAverage(std::vector<float> readings);
 BatteryStatistics computeStatistics(std::vector<float> temperatureReadings , std::vector<float> stateOfChargeReadings);
 void DisplayTemperatureStats(TemperatureStatistics tempStats);
 void DisplayStateOfChargeStats(StateOfChargeStatistics socStats);
-void processReceiverData();
+BatteryStatistics processReceiverData();
 
 
  
