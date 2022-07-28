@@ -15,6 +15,7 @@ std::vector<std::string>  getLinesfromConsole()
          vector_lines.push_back(line);
        }while(line != "");
      
+     cout << "vector_lines[0]" << vector_lines[0] <<endl;
     return vector_lines;
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
@@ -40,8 +41,7 @@ BMSParameters readBMSParametersFromConsole()
    BMSParameters bmsParameter;  
    lines = getLinesfromConsole();
    std::cout << "---Received data from Sender---" << std::endl;
-   if(lines.empty())
-   cout << "lines.empty()" << endl;
+     
    //Read Temperature
     std::cout << lines[0] << std::endl; // Read Temperature Title
     bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[1]); // Read Temperature Values
