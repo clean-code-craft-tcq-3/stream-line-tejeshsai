@@ -85,6 +85,13 @@ void TestReceiver()
   DisplayStateOfChargeStats(batteryStatistics.stateOfChargeStats);
 }
 
+void TestReceiver2()
+{
+    BMSParameters  bmsParameters = readBMSParametersFromConsole2();
+    cout << "Temp :" << bmsParameters.temperatureReadings[0];
+}
+
+
 int main()
 {
   TestCheckMinimumTemperature();
@@ -97,7 +104,7 @@ int main()
   
   TestBatteryStatistics();
   //TestReceiver();
-  
+  TestReceiver2();
   return 0;
 }
   
