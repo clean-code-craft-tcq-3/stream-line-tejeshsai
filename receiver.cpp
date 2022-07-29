@@ -87,6 +87,7 @@ BMSParameters  readBMSParametersFromConsole2()
     BMSParameters bmsParameter;
     while(getline(std::cin, line))
     {
+        cout <<"while  getline--" << endl;
         parseBmsParameter(line, bmsParameter);
     }
     return bmsParameter;
