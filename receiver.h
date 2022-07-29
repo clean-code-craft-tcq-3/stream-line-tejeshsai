@@ -36,9 +36,10 @@ std::vector<std::string>  getLinesfromConsole();
 std::vector<float> readCommaSeperatedValues(std::string line);
 BMSParameters readBMSParametersFromConsole();
 
-BMSParameters readBMSParametersFromConsole2();
-void parseBmsParameter(std::string line, BMSParameters &bmsParameter);
 std::vector<float> getLinesfromConsole2();
+void parseBmsParameter(std::string line, BMSParameters &bmsParameter);
+BMSParameters readBMSParametersFromConsole2();
+
 
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
