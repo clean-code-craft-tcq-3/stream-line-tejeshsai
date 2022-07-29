@@ -98,8 +98,7 @@ int main()
   TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
-  //TestReceiver();
-  TestReceiver2();
+  TestReceiver();
   return 0;
 }
   
