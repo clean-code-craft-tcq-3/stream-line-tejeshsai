@@ -51,6 +51,45 @@ BMSParameters readBMSParametersFromConsole()
    
      return bmsParameter;
 }
+/*---------------*/
+std::vector<float> getLinesfromConsole2()
+{
+    std::string line, value;
+    std::vector<float> parameterValues;
+    getline(std::cin, line);
+    std::stringstream values(line);
+    while(getline(values, value, ','))
+    {
+        parameterValues.push_back(std::stoi(value));
+    }
+    return parameterValues;
+}
+void parseBmsParameter(std::string line, BMSParameters  &bmsParameter)
+{
+    std::string value;
+    if(line.find("Charge") != std::string::npos)
+    {
+        bmsParameter.stateOfChargeReadings = getLinesfromConsole2();
+    }
+    else if(line.find("Heat") != std::string::npos)
+    {
+        bmsParameter.temperatureReadings = getLinesfromConsole2();
+    }
+}
+BMSParameters  readBMSParametersFromConsole2()
+{
+    std::string line;
+    BMSParameters bmsParameter;
+    while(getline(std::cin, line))
+    {
+        parseBmsParameter(line, bmsParameter);
+    }
+    return bmsParameter;
+}
+
+
+/*-----------------*/
+
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings)
 {
       float min = *min_element(temperatureReadings.begin(), temperatureReadings.end());
