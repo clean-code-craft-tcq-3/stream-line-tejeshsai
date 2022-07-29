@@ -77,20 +77,15 @@ void TestBatteryStatistics()
 }
 
 //Test to Check Sender Data Received by receiver 
-void TestReceiver()
+void TestDisplayBatteryStats()
 {
-  BatteryStatistics batteryStatistics;
-  batteryStatistics = processReceiverData();
-  DisplayTemperatureStats(batteryStatistics.tempereatureStats);
-  DisplayStateOfChargeStats(batteryStatistics.stateOfChargeStats);
+  std::vector<float> temperatureReadings = {10,2,30,20,5};
+  std::vector<float> stateofChargeReadings = {60,68,70,74,80};
+  BatteryStatistics batteryStats;
+  batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
+  DisplayTemperatureStats(batteryStats.tempereatureStats);
+  DisplayStateOfChargeStats(batteryStats.stateOfChargeStats);
 }
-
-void TestReceiver2()
-{
-    BMSParameters  bmsParameters = readBMSParametersFromConsole2();
-    std::cout << "Temp :" << bmsParameters.temperatureReadings[0];
-}
-
 
 int main()
 {
