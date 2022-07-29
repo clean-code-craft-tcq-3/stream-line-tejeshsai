@@ -35,6 +35,11 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
 std::vector<std::string>  getLinesfromConsole();
 std::vector<float> readCommaSeperatedValues(std::string line);
 BMSParameters readBMSParametersFromConsole();
+
+BMSParameters readBMSParametersFromConsole2();
+void parseBmsParameter(std::string line, BMSParameters &bmsParameter);
+std::vector<float> getLinesfromConsole2();
+
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMinimumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
