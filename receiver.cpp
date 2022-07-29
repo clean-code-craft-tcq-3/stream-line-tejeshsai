@@ -54,6 +54,7 @@ BMSParameters readBMSParametersFromConsole()
 /*---------------*/
 std::vector<float> getLinesfromConsole2()
 {
+        cout <<"getLinesfromConsole2 --" << endl;
     std::string line, value;
     std::vector<float> parameterValues;
     getline(std::cin, line);
@@ -66,6 +67,8 @@ std::vector<float> getLinesfromConsole2()
 }
 void parseBmsParameter(std::string line, BMSParameters  &bmsParameter)
 {
+    cout <<"parseBmsParameter --" << endl;
+
     std::string value;
     if(line.find("Charge") != std::string::npos)
     {
@@ -78,6 +81,8 @@ void parseBmsParameter(std::string line, BMSParameters  &bmsParameter)
 }
 BMSParameters  readBMSParametersFromConsole2()
 {
+   cout <<"readBMSParametersFromConsole2 --" << endl;
+
     std::string line;
     BMSParameters bmsParameter;
     while(getline(std::cin, line))
