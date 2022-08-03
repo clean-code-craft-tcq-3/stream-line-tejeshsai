@@ -48,7 +48,7 @@ BMSParameters readBMSParametersFromConsole()
    bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[1]); // Read State of Charge Values from Second line.
    //Read Temperature
    std::cout << lines[0] << std::endl; // Read Temperature Title
-   bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[2]); // Read Temperature Values from Fourth line.
+   bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[3]); // Read Temperature Values from Fourth line.
    
    return bmsParameter;
 }
