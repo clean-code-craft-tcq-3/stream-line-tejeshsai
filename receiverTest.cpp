@@ -97,7 +97,6 @@ void TestReceiver()
   assert(batteryStats.stateOfChargeStats.minimumReadings == 60); 
   assert(batteryStats.stateOfChargeStats.maximumReadings == 80); 
   assert(batteryStats.stateOfChargeStats.simpleMovingAvg == expectedSMA); 
-  
 }
 
 int main()
