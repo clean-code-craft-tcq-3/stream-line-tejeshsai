@@ -7,16 +7,17 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 }
 std::vector<std::string>  getLinesfromConsole()
 {
-     cout <<"getLinesfromConsole --" << endl;
-     std::vector<std::string> vector_lines;
-     std::string line = "";
-     do{
-         getline(cin,line,'\n');
-         vector_lines.push_back(line);
-       }while(line != "");
-     
-     cout << "vector_lines[0] : " << vector_lines[0] <<endl;
-    return vector_lines;
+     ifstream inputFileStream;
+     inputFileStream.open("./receiver.txt");
+     vector<string> linesVector;
+     string line;
+     while (inputFileStream.peek() != EOF)
+     {
+        getline(inputFileStream, line, '\n');
+        linesVector.push_back(line);
+     }
+    inputFileStream.close();
+    return linesVector;
 }
 std::vector<float> readCommaSeperatedValues(std::string line)
 {
@@ -42,14 +43,14 @@ BMSParameters readBMSParametersFromConsole()
    lines = getLinesfromConsole();
    std::cout << "---Received data from Sender---" << std::endl;
      
-   //Read Temperature
-    std::cout << lines[0] << std::endl; // Read Temperature Title
-    bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[1]); // Read Temperature Values
    //Read StateofChatrge
-    std::cout << lines[2] << std::endl; // Read State Of Charge Title
-    bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[3]); // Read State of Charge Values
+   std::cout << lines[2] << std::endl; // Read State Of Charge Title
+   bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[1]); // Read State of Charge Values from Second line.
+   //Read Temperature
+   std::cout << lines[0] << std::endl; // Read Temperature Title
+   bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[2]); // Read Temperature Values from Fourth line.
    
-     return bmsParameter;
+   return bmsParameter;
 }
 
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings)
