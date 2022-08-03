@@ -35,14 +35,9 @@ struct BMSParameters
 
 
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
-std::vector<std::string>  getLinesfromConsole();
+std::vector<std::string>  getLines();
 std::vector<float> readCommaSeperatedValues(std::string line);
-BMSParameters readBMSParametersFromConsole();
-
-std::vector<float> getLinesfromConsole2();
-void parseBmsParameter(std::string line, BMSParameters &bmsParameter);
-BMSParameters readBMSParametersFromConsole2();
-
+BMSParameters readBMSParametersFromFile();
 
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
