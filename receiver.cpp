@@ -5,7 +5,7 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
 }
-std::vector<std::string>  getLinesfromConsole()
+std::vector<std::string>  getLines()
 {
      ifstream inputFileStream;
      inputFileStream.open("./receiver.txt");
@@ -34,11 +34,11 @@ std::vector<float> readCommaSeperatedValues(std::string line)
     }
     return readValues;
 }
-BMSParameters readBMSParametersFromConsole()
+BMSParameters readBMSParametersFromFile()
 {
    vector<std::string> lines;
    BMSParameters bmsParameter;  
-   lines = getLinesfromConsole();
+   lines = getLines();
    bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[1]); // Read State of Charge Values from Second line.
    bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[3]); // Read Temperature Values from Fourth line.
    return bmsParameter;
@@ -119,7 +119,7 @@ BatteryStatistics processReceiverData()
      BMSParameters bmsParameters;
      BatteryStatistics batteryStatistics;
  
-     bmsParameters = readBMSParametersFromConsole();
+     bmsParameters = readBMSParametersFromFile();
      batteryStatistics = computeStatistics(bmsParameters.temperatureReadings,bmsParameters.stateOfChargeReadings); 
      return batteryStatistics;
 }
