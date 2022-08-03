@@ -121,18 +121,5 @@ BatteryStatistics processReceiverData()
  
      bmsParameters = readBMSParametersFromConsole();
      batteryStatistics = computeStatistics(bmsParameters.temperatureReadings,bmsParameters.stateOfChargeReadings); 
-   cout <<"Debug Min ---" <<endl;  
-   float temperatureMin;
-        int number = bmsParameters.temperatureReadings.size();
-    cout << "printVectorFloat----- total Size" << number << endl;
-
-    for (int i = 0; i < number; i++)
-    {
-        cout <<  bmsParameters.temperatureReadings[i] << ",";
-    }
-         cout << "END----------- "<< endl;
-   temperatureMin = getMinimumTemperatureReadings(bmsParameters.temperatureReadings);
-              cout << "temperatureMin :"<< temperatureMin<< endl;
-
      return batteryStatistics;
 }
