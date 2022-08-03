@@ -77,14 +77,27 @@ void TestBatteryStatistics()
 }
 
 //Test to Check Sender Data Received by receiver 
-void TestDisplayBatteryStats()
+void TestReceiver()
 {
-  std::vector<float> temperatureReadings;
-  std::vector<float> stateofChargeReadings;
   BatteryStatistics batteryStats;
+  float temperatureSMA = 34.52; // SMA - Simple Moving Avergae
+  float expectedSMA = 70.2;
+  float temperatureMin,temperatureMax;
+
   batteryStats = processReceiverData();
   DisplayTemperatureStats(batteryStats.tempereatureStats);
   DisplayStateOfChargeStats(batteryStats.stateOfChargeStats);
+  
+  /*Test Temperature Stats*/
+  assert(batteryStats.tempereatureStats.minimumReadings == 2); 
+  assert(batteryStats.tempereatureStats.maximumReadings == 60); 
+  assert(batteryStats.tempereatureStats.simpleMovingAvg == temperatureSMA); 
+  
+   /*Test State of Charge Stats*/
+  assert(batteryStats.stateOfChargeStats.minimumReadings == 60); 
+  assert(batteryStats.stateOfChargeStats.maximumReadings == 80); 
+  assert(batteryStats.stateOfChargeStats.simpleMovingAvg == expectedSMA); 
+  
 }
 
 int main()
@@ -98,7 +111,7 @@ int main()
   TestStaetOfChargeSimpleMovingAverage();
   
   TestBatteryStatistics();
-  TestDisplayBatteryStats();
+  TestReceiver();
   return 0;
 }
   
