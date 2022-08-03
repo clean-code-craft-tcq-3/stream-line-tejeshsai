@@ -130,7 +130,7 @@ BatteryStatistics processReceiverData()
     {
         cout <<  bmsParameters.temperatureReadings[i];
     }
-         cout << "END----------- << endl;
+         cout << "END----------- "<< endl;
    temperatureMin = getMinimumTemperatureReadings(bmsParameters.temperatureReadings);
      return batteryStatistics;
 }
