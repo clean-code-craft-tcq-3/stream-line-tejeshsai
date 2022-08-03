@@ -4,6 +4,9 @@
 #include <algorithm>
 #include <assert.h>
 #include <sstream>
+#include <fstream>
+#include<iterator>
+
 struct TemperatureStatistics
 {
   float minimumReadings;
