@@ -79,10 +79,10 @@ void TestBatteryStatistics()
 //Test to Check Sender Data Received by receiver 
 void TestDisplayBatteryStats()
 {
-  std::vector<float> temperatureReadings = {10,2,30,20,5};
-  std::vector<float> stateofChargeReadings = {60,68,70,74,80};
+  std::vector<float> temperatureReadings;
+  std::vector<float> stateofChargeReadings;
   BatteryStatistics batteryStats;
-  batteryStats = computeStatistics(temperatureReadings,stateofChargeReadings);
+  batteryStats = processReceiverData();
   DisplayTemperatureStats(batteryStats.tempereatureStats);
   DisplayStateOfChargeStats(batteryStats.stateOfChargeStats);
 }
