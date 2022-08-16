@@ -34,15 +34,21 @@ def send_params(sensor1, sensor2, receiver, no_of_samples):
     receiver(charge_stream, heat_stream)
 
 
-def print_on_console(charge_stream, heat_stream):
-    print("Charge")
-    for i in charge_stream:
-        print(i, end=",")
-    print()
-    print("Heat")
-    for i in heat_stream:
-        print(i, end=",")
+def write_to_file(charge_stream, heat_stream):
+    fileName = "./output.txt"
+    with open(fileName, "w") as file_object:
+        file_object.write("Charge\n")
+        charge_values = ",".join([str(value) for value in charge_stream])
+        file_object.write(charge_values)
+
+        file_object.write("\n")
+
+        file_object.write("Heat\n")
+        heat_values = ",".join([str(value) for value in heat_stream])
+        file_object.write(heat_values)
+
+        file_object.close()
 
 
 if __name__ == "__main__":
-    send_params(ChargeSensor, HeatSensor, print_on_console, 50)
+    send_params(ChargeSensor, HeatSensor, write_to_file, 50)
