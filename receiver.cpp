@@ -5,6 +5,45 @@ void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value)
 {
      std::cout << msg << Delimiter << value << std::endl;
 }
+std::vector<std::string>  getLines()
+{
+     ifstream inputFileStream;
+     inputFileStream.open("./receiver.txt");
+     vector<string> linesVector;
+     string line;
+     while (inputFileStream.peek() != EOF)
+     {
+        getline(inputFileStream, line, '\n');
+        linesVector.push_back(line);
+     }
+    inputFileStream.close();
+    return linesVector;
+}
+std::vector<float> readCommaSeperatedValues(std::string line)
+{
+    std::vector<float> readValues;
+    stringstream ss(line);
+    while (ss.good())
+    {
+        string substr;
+        getline(ss, substr, ',');
+        if (!substr.empty())
+        {
+           readValues.push_back(std::stof(substr)); // Convert String to Float.
+        }
+    }
+    return readValues;
+}
+BMSParameters readBMSParametersFromFile()
+{
+   vector<std::string> lines;
+   BMSParameters bmsParameter;  
+   lines = getLines();
+   bmsParameter.stateOfChargeReadings = readCommaSeperatedValues(lines[1]); // Read State of Charge Values from Second line.
+   bmsParameter.temperatureReadings = readCommaSeperatedValues(lines[3]); // Read Temperature Values from Fourth line.
+   return bmsParameter;
+}
+
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings)
 {
       float min = *min_element(temperatureReadings.begin(), temperatureReadings.end());
@@ -35,7 +74,6 @@ float getSimpleMovingAverage(std::vector<float> readings)
        sum +=readings[i];
     }
     simpleMovingAvg=(sum/totalCount);
-    DisplayReadingsOnConsole(" getSimpleMovingAverage ",':',simpleMovingAvg);
     return simpleMovingAvg;
 }
 
@@ -74,4 +112,14 @@ void DisplayStateOfChargeStats(StateOfChargeStatistics socStats)
      DisplayReadingsOnConsole("SOC Minimum",':',socStats.minimumReadings);
      DisplayReadingsOnConsole("SOC Maximum",':',socStats.maximumReadings);
      DisplayReadingsOnConsole("SOC Average",':',socStats.simpleMovingAvg);
+}
+
+BatteryStatistics processReceiverData()
+{
+     BMSParameters bmsParameters;
+     BatteryStatistics batteryStatistics;
+ 
+     bmsParameters = readBMSParametersFromFile();
+     batteryStatistics = computeStatistics(bmsParameters.temperatureReadings,bmsParameters.stateOfChargeReadings); 
+     return batteryStatistics;
 }

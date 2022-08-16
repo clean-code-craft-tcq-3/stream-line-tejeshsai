@@ -3,6 +3,9 @@
 #include<string>
 #include <algorithm>
 #include <assert.h>
+#include <sstream>
+#include <fstream>
+#include<iterator>
 
 struct TemperatureStatistics
 {
@@ -23,7 +26,19 @@ struct BatteryStatistics
   StateOfChargeStatistics stateOfChargeStats;
 };
 
+/*Battery Management System Parameters*/
+struct BMSParameters
+{
+    std::vector<float> temperatureReadings;
+    std::vector<float> stateOfChargeReadings;
+};
+
+
 void DisplayReadingsOnConsole(std::string msg, char Delimiter, float value);
+std::vector<std::string>  getLines();
+std::vector<float> readCommaSeperatedValues(std::string line);
+BMSParameters readBMSParametersFromFile();
+
 float getMinimumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMaximumTemperatureReadings(std::vector<float> temperatureReadings);
 float getMinimumStateOfChargeReadings(std::vector<float> stateOfChargeReadings);
@@ -32,6 +47,7 @@ float getSimpleMovingAverage(std::vector<float> readings);
 BatteryStatistics computeStatistics(std::vector<float> temperatureReadings , std::vector<float> stateOfChargeReadings);
 void DisplayTemperatureStats(TemperatureStatistics tempStats);
 void DisplayStateOfChargeStats(StateOfChargeStatistics socStats);
+BatteryStatistics processReceiverData();
 
 
  
